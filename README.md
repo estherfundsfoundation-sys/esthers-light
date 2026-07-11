@@ -1,21 +1,99 @@
-# Esther's Light
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Esther's Light is a free, Bible-centered student ministry experience from Esther Funds Foundation.">
+  <title>Esther's Light | Esther Funds Foundation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="wholehearted-year.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Esther's Light home"><span class="brand-mark" aria-hidden="true">✦</span><span>ESTHER'S<br>LIGHT</span></a>
+    <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="siteNav"><span></span><span></span><span></span><span class="sr-only">Open menu</span></button>
+    <nav class="site-nav" id="siteNav" aria-label="Primary navigation">
+      <a href="#my-light">My Light</a><a href="#bible">Read the Bible</a><a href="#studies">Study Programs</a><a href="#life">Life Situations</a><a href="#prayer">Prayer Room</a><a href="#journal">Journal</a><a href="#more">More</a>
+    </nav>
+    <button class="button button-small button-solid continue-button" data-scroll="#my-light">Continue My Journey</button>
+  </header>
 
-Static, browser-only MVP for Esther Funds Foundation. Open `index.html` locally to preview it, or upload all files to a static host. No student account, server, tracker, or API key is required.
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="heroTitle">
+      <div class="hero-light light-one" aria-hidden="true"></div><div class="hero-light light-two" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">A MINISTRY PROGRAM OF ESTHER FUNDS FOUNDATION</p>
+          <h1 id="heroTitle">ESTHER'S<br><em>LIGHT</em></h1>
+          <p class="hero-words">Read the Word. <span>Understand the Word.</span> Live the Word. <span>Carry the Light.</span></p>
+          <p class="lead">A digital Christian ministry experience helping students strengthen their faith, understand Scripture, discover purpose, and carry God’s light into campus and community.</p>
+          <div class="button-row"><button class="button button-gold" data-scroll="#assessment">Start My Faith Journey</button><button class="button button-outline" data-scroll="#bible">Open the Bible</button></div>
+          <p class="quiet-note">Free to use · Private on this device · Designed for young men and young women</p>
+        </div>
+        <div class="lantern-card" aria-label="A glowing lantern beside an open Bible illustration">
+          <div class="star star-a" aria-hidden="true">✦</div><div class="star star-b" aria-hidden="true">✦</div><div class="star star-c" aria-hidden="true">✦</div>
+          <div class="lantern" aria-hidden="true"><div class="lantern-handle"></div><div class="lantern-top"></div><div class="lantern-glow"></div><div class="lantern-body"><i></i></div><div class="lantern-base"></div></div>
+          <div class="open-bible" aria-hidden="true"><div class="page left-page"><b>THE WORD</b><span></span><span></span><span></span></div><div class="spine"></div><div class="page right-page"><b>LIGHT FOR TODAY</b><span></span><span></span><span></span></div></div>
+          <p class="scripture-card">“Your word is a lamp to my feet and a light for my path.” <strong>Psalm 119:105</strong></p>
+        </div>
+      </div>
+    </section>
 
-## Included MVP
+    <section class="welcome-strip"><div class="container"><p><strong>Bible-centered.</strong> Beginner-friendly. Built for real student life. <strong>Open to everyone.</strong></p><small>You never have to participate in ministry programming to receive EFF scholarship, education, or student-support resources.</small></div></section>
 
-- Accessible responsive navigation, hero, assessment, private personalized dashboard
-- Bible reader architecture with representative public-domain World English Bible passages
-- Eight book introductions, First Light seven-day study, S.O.A.P. workspace
-- Private prayer room/timer, journal, bookmarks, progress, service activity, verse game, printable certificate
-- Browser-only export/import backup
+    <section class="section assessment-section" id="assessment" aria-labelledby="assessmentTitle"><div class="container narrow">
+      <p class="eyebrow">YOUR STARTING POINT</p><h2 id="assessmentTitle">What do you need today?</h2><p class="lead">Choose what is real. Your answers create a private pathway on this device.</p>
+      <form id="assessmentForm" class="assessment-card">
+        <fieldset><legend>Choose one or more areas.</legend><div class="choice-grid" id="needsChoices"></div></fieldset>
+        <fieldset><legend>How much time can you study each day?</legend><div class="radio-row" id="timeChoices"></div></fieldset>
+        <fieldset><legend>What study style helps you most?</legend><div class="radio-row" id="styleChoices"></div></fieldset>
+        <fieldset><legend>What is your current Bible experience?</legend><div class="radio-row" id="experienceChoices"></div></fieldset>
+        <fieldset><legend>Optional: personalize the language you see.</legend><div class="radio-row" id="audienceChoices"></div></fieldset>
+        <button class="button button-solid" type="submit">Build My Light Pathway</button>
+      </form>
+    </div></section>
 
-## GoDaddy
+    <section class="section dashboard-section" id="my-light" aria-labelledby="myLightTitle"><div class="container">
+      <div class="section-heading"><div><p class="eyebrow">YOUR PRIVATE DASHBOARD</p><h2 id="myLightTitle">My Light</h2></div><button class="text-button" id="resetProfile">Update my pathway</button></div>
+      <div class="dashboard-empty" id="dashboardEmpty"><div class="mini-lantern" aria-hidden="true">✦</div><h3>Your next faithful step can start small.</h3><p>Complete the short “What do you need today?” check-in and we will shape a starting plan around your real season.</p><button class="button button-solid" data-scroll="#assessment">Build My Pathway</button></div>
+      <div class="dashboard-content" id="dashboardContent" hidden>
+        <article class="daily-card"><p class="eyebrow">TODAY'S LIGHT</p><blockquote id="dailyVerse"></blockquote><p id="dailyReference" class="reference"></p><button class="text-button" id="copyDailyVerse">Copy verse</button></article>
+        <article class="plan-card"><p class="eyebrow">RECOMMENDED FOR YOU</p><h3 id="planBook"></h3><p id="planReason"></p><div class="plan-meta"><span id="planTime"></span><span id="planStyle"></span></div><button class="button button-solid" data-scroll="#studies">Start My Plan</button></article>
+        <article class="action-card"><p class="eyebrow">ONE PRACTICAL ACTION</p><h3 id="planActionTitle"></h3><p id="planAction"></p><button class="button button-outline" data-scroll="#prayer">Pray through it</button></article>
+      </div>
+      <div class="lantern-progress" aria-label="Your Lantern Progress"><div class="progress-title"><span>Your lantern grows with each faithful step.</span><strong id="progressLabel">0 steps</strong></div><div class="progress-track"><i id="progressFill"></i></div><div class="progress-stats"><span><b id="chaptersCount">0</b> chapters</span><span><b id="studyCount">0</b> studies</span><span><b id="prayerCount">0</b> prayers</span><span><b id="serviceCount">0</b> service actions</span></div></div>
+    </div></section>
 
-This full app should be hosted as a static site (for example, a new Vercel project) and linked from GoDaddy. Do not paste all app files into one GoDaddy HTML block. Add a simple button that opens the hosted URL in a new tab.
+    <section class="section bible-section" id="bible" aria-labelledby="bibleTitle"><div class="container">
+      <div class="section-heading"><div><p class="eyebrow">READ THE WORD</p><h2 id="bibleTitle">Full Bible Reader</h2><p class="section-intro">Read all 66 books of the public-domain World English Bible, one chapter at a time. Your selected chapter is saved privately on this device.</p></div><div class="reader-controls"><button class="icon-button" id="fontDown" aria-label="Make Scripture text smaller">A−</button><button class="icon-button" id="fontUp" aria-label="Make Scripture text larger">A+</button><button class="icon-button" id="themeToggle" aria-label="Toggle dark reading mode">◐</button></div></div>
+      <div class="reader-layout"><aside class="book-panel"><label for="bookSelect">Book</label><select id="bookSelect"></select><label for="chapterSelect">Chapter</label><select id="chapterSelect"></select><p class="reader-status" id="readerStatus" aria-live="polite">World English Bible (WEB)</p><button class="button button-outline small" id="continueReading">Open chapter</button><button class="text-button" id="openIntro">About this book</button></aside>
+        <article class="reader-paper" id="readerPaper"><div class="reader-top"><button class="text-button" id="previousChapter">← Previous</button><p id="chapterHeading"></p><button class="text-button" id="nextChapter">Next →</button></div><div id="scriptureText" class="scripture-text" tabindex="0"></div><div class="reader-actions"><button class="text-button" id="bookmarkChapter">Bookmark chapter</button><button class="text-button" id="printChapter">Print chapter</button><button class="text-button" id="copyChapter">Copy chapter</button></div></article>
+        <aside class="study-panel"><p class="eyebrow">STUDY PANEL</p><h3>Stop. Notice. Respond.</h3><p>Select a verse to send it to the S.O.A.P. workspace, add a note, or save it as a favorite.</p><button class="button button-solid small" id="sendToSoap">Open S.O.A.P. Study</button><div id="savedVerses" class="saved-verses"></div></aside>
+      </div>
+    </div></section>
 
-## Important
+    <section class="section studies-section" id="studies" aria-labelledby="studiesTitle"><div class="container"><p class="eyebrow">GROW WITH A PLAN</p><h2 id="studiesTitle">Esther's Light Study Programs</h2><div class="filter-row" id="studyFilters" aria-label="Filter study programs"></div><div class="program-grid" id="programGrid"></div>
+      <article class="first-light-workspace" id="firstLight" hidden><div class="workspace-head"><div><p class="eyebrow">FIRST LIGHT · 7 DAYS</p><h3 id="dayTitle"></h3><p id="dayReference" class="reference"></p></div><span id="dayProgress" class="day-progress"></span></div><blockquote id="dayScripture"></blockquote><p id="dayDevotional"></p><p class="context-note" id="dayContext"></p><h4>Reflect</h4><ol id="dayQuestions"></ol><label for="dayJournal">What is God showing you?</label><textarea id="dayJournal" rows="5" placeholder="Write honestly. This stays in your browser."></textarea><div class="prayer-prompt"><strong>Prayer prompt</strong><p id="dayPrayer"></p></div><div class="practical-action"><strong>Carry it today</strong><p id="dayAction"></p></div><div class="button-row"><button class="button button-outline" id="previousDay">← Previous</button><button class="button button-solid" id="completeDay">Mark Complete</button><button class="button button-outline" id="nextDay">Next →</button></div></article>
+    </div></section>
 
-Private entries are stored in `localStorage`. Clearing browser data removes them. This MVP does not sync entries between devices.
+    <section class="section soap-section" id="soap" aria-labelledby="soapTitle"><div class="container narrow"><p class="eyebrow">GUIDED STUDY WORKSPACE</p><h2 id="soapTitle">Study with S.O.A.P.</h2><p class="section-intro">Scripture. Observation. Application. Prayer.</p><form id="soapForm" class="soap-form"><label for="soapScripture">S — Scripture</label><textarea id="soapScripture" rows="2" placeholder="A verse that stood out"></textarea><label for="soapObservation">O — Observation</label><textarea id="soapObservation" rows="4" placeholder="What words, actions, themes, or ideas stand out?"></textarea><label for="soapApplication">A — Application</label><textarea id="soapApplication" rows="4" placeholder="How does this connect to your faith, school, relationships, or choices?"></textarea><label for="soapPrayer">P — Prayer</label><textarea id="soapPrayer" rows="4" placeholder="Write a personal prayer."></textarea><button class="button button-solid" type="submit">Save This Study</button></form></div></section>
 
-Before public launch, ask an EFF chaplain, ministry advisor, or trusted Bible scholar to review devotionals and theological content.
+    <section class="section life-section" id="life" aria-labelledby="lifeTitle"><div class="container"><p class="eyebrow">LIGHT FOR WHAT YOU'RE FACING</p><h2 id="lifeTitle">God meets students in real life.</h2><div class="life-grid" id="lifeGrid"></div><article class="safety-note"><strong>If you are in immediate danger or experiencing a mental-health crisis:</strong> call or text <a href="tel:988">988</a> in the United States, call 911 for immediate danger, and reach out to a trusted person, campus counselor, healthcare professional, pastor, or local support. Prayer can be a support, but it does not replace professional or emergency care.</article></div></section>
+
+    <section class="section prayer-section" id="prayer" aria-labelledby="prayerTitle"><div class="container prayer-grid"><div><p class="eyebrow">A PRIVATE PRAYER ROOM</p><h2 id="prayerTitle">You do not have to know the perfect words.</h2><p class="section-intro">Choose a starting point. Your prayer remains only in this browser.</p><div id="prayerTopics" class="prayer-topics"></div><div class="timer" aria-live="polite"><span id="timerValue">05:00</span><button class="text-button" id="timerStart">Start timer</button><button class="text-button" id="timerReset">Reset</button></div></div><form id="prayerForm" class="prayer-card"><label for="prayerText">My prayer</label><textarea id="prayerText" rows="8" placeholder="God, I am here. Help me begin…"></textarea><label class="check-label"><input type="checkbox" id="answeredPrayer">This prayer has been answered</label><button class="button button-gold" type="submit">Save Private Prayer</button></form></div></section>
+
+    <section class="section journal-section" id="journal" aria-labelledby="journalTitle"><div class="container"><div class="section-heading"><div><p class="eyebrow">YOUR PRIVATE RECORD</p><h2 id="journalTitle">Spiritual Journal</h2><p class="section-intro">Your journal is saved only in this browser. Export a backup before clearing browser data or switching devices.</p></div><div class="journal-actions"><button class="button button-outline small" id="exportData">Export backup</button><label class="button button-outline small import-label">Import backup<input type="file" id="importData" accept="application/json"></label></div></div><div class="journal-tabs"><button class="tab active" data-journal="all">All</button><button class="tab" data-journal="study">Studies</button><button class="tab" data-journal="prayer">Prayers</button><button class="tab" data-journal="verse">Saved verses</button></div><div id="journalList" class="journal-list"></div></div></section>
+
+    <section class="section more-section" id="more" aria-labelledby="moreTitle"><div class="container"><p class="eyebrow">CARRY THE LIGHT FURTHER</p><h2 id="moreTitle">Practice the Word. Share the light.</h2><div class="more-grid"><article class="feature-card"><div class="feature-icon" aria-hidden="true">01</div><h3>Memory Games</h3><p>Practice Scripture without turning spiritual growth into a competition.</p><button class="button button-outline small" id="startGame">Play a verse game</button><div class="game-box" id="gameBox" hidden></div></article><article class="feature-card"><div class="feature-icon" aria-hidden="true">02</div><h3>Carry the Light</h3><p>Turn faith into service: encourage students, support a pantry, help locate scholarships, or check on someone who is struggling.</p><button class="button button-outline small" id="serviceAction">Choose a service action</button><div id="serviceBox" class="service-box" hidden></div></article><article class="feature-card"><div class="feature-icon" aria-hidden="true">03</div><h3>Completion Certificates</h3><p>For completed learning journeys—not ordination, licensure, or professional certification.</p><label for="certificateName">Your name</label><input id="certificateName" placeholder="Name for certificate"><button class="button button-outline small" id="printCertificate">Create First Light certificate</button></article></div></div></section>
+  </main>
+  <footer><div class="container footer-grid"><div><p class="footer-brand">ESTHER'S LIGHT</p><p>A ministry program of Esther Funds Foundation<br><strong>Every Future Fulfilled.</strong></p></div><div><a href="https://estherfundsfoundation.org" target="_blank" rel="noopener">Esther Funds Foundation</a><a href="https://estherfundsfoundation.org/reach-action-hub" target="_blank" rel="noopener">REACH Student Support</a><a href="tel:988">Crisis Support · 988</a></div><p class="disclaimer">Christian education and encouragement only—not medical, mental-health, legal, or financial advice. Study notes are not a replacement for pastoral or scholarly guidance. Seek appropriate professional or emergency support when needed.</p></div></footer>
+  <dialog id="bookDialog"><button class="dialog-close" aria-label="Close book introduction">×</button><div id="bookIntro"></div></dialog>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="app.js"></script>
+  <script src="wholehearted-year.js"></script>
+</body></html>
