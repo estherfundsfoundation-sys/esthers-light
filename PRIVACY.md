@@ -1,8 +1,5 @@
--- Run once in a NEW Esther's Light Supabase project. This keeps member data private.
-create table if not exists public.el_profiles (id uuid primary key references auth.users(id) on delete cascade, display_name text, created_at timestamptz not null default now());
-create table if not exists public.el_progress (user_id uuid not null references auth.users(id) on delete cascade, progress_key text not null, progress_value jsonb not null default '{}'::jsonb, updated_at timestamptz not null default now(), primary key(user_id,progress_key));
-create table if not exists public.el_message_preferences (user_id uuid primary key references auth.users(id) on delete cascade, phone text not null, topics text[] not null default '{}', consented_at timestamptz not null, active boolean not null default true, updated_at timestamptz not null default now());
-alter table public.el_profiles enable row level security; alter table public.el_progress enable row level security; alter table public.el_message_preferences enable row level security;
-drop policy if exists "Members manage their Esther profile" on public.el_profiles; create policy "Members manage their Esther profile" on public.el_profiles for all using (auth.uid()=id) with check (auth.uid()=id);
-drop policy if exists "Members manage their Esther progress" on public.el_progress; create policy "Members manage their Esther progress" on public.el_progress for all using (auth.uid()=user_id) with check (auth.uid()=user_id);
-drop policy if exists "Members manage their Esther text choices" on public.el_message_preferences; create policy "Members manage their Esther text choices" on public.el_message_preferences for all using (auth.uid()=user_id) with check (auth.uid()=user_id);
+# Privacy
+
+Esther's Light stores assessment answers, private prayers, journal entries, saved verses, and progress only in the browser’s local storage. EFF does not receive this information in this MVP. Browser data can be removed by clearing browser data, using private browsing, or changing devices.
+
+Students should use Export backup to download a private JSON copy before clearing browser data. A future account system requires consent, encryption, access control, deletion controls, a privacy policy, and no use of private entries for analytics.

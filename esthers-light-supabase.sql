@@ -1,11 +1,8 @@
-# Bible data and licensing
-
-This MVP includes only representative passages identified as World English Bible (WEB) text. The WEB is public domain. Do not replace it with NIV, NLT, NKJV, ESV, CSB, The Message, or another copyrighted translation without the translation owner’s authorization.
-
-The reader is intentionally structured as `chapters[book].chapters[chapter] = [[verseNumber, text]]` in `app.js`. For production, move that object into one small JSON file per book and load only the selected book/chapter. Keep the adapter independent from any provider. If an API needs a secret token, use a server-side function; never put that secret in browser JavaScript.
-
-Suggested schema:
-
-```json
-{"book":"John","chapter":1,"translation":"WEB","verses":[{"number":1,"text":"..."}]}
-```
+-- Run once in a NEW Esther's Light Supabase project. This keeps member data private.
+create table if not exists public.el_profiles (id uuid primary key references auth.users(id) on delete cascade, display_name text, created_at timestamptz not null default now());
+create table if not exists public.el_progress (user_id uuid not null references auth.users(id) on delete cascade, progress_key text not null, progress_value jsonb not null default '{}'::jsonb, updated_at timestamptz not null default now(), primary key(user_id,progress_key));
+create table if not exists public.el_message_preferences (user_id uuid primary key references auth.users(id) on delete cascade, phone text not null, topics text[] not null default '{}', consented_at timestamptz not null, active boolean not null default true, updated_at timestamptz not null default now());
+alter table public.el_profiles enable row level security; alter table public.el_progress enable row level security; alter table public.el_message_preferences enable row level security;
+drop policy if exists "Members manage their Esther profile" on public.el_profiles; create policy "Members manage their Esther profile" on public.el_profiles for all using (auth.uid()=id) with check (auth.uid()=id);
+drop policy if exists "Members manage their Esther progress" on public.el_progress; create policy "Members manage their Esther progress" on public.el_progress for all using (auth.uid()=user_id) with check (auth.uid()=user_id);
+drop policy if exists "Members manage their Esther text choices" on public.el_message_preferences; create policy "Members manage their Esther text choices" on public.el_message_preferences for all using (auth.uid()=user_id) with check (auth.uid()=user_id);
